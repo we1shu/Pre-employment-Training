@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="utf-8">
+    <title>リアルタイムストリーミングのサンプル 1</title>
+    <script src="https://code.jquery.com/jquery-3.5.0.min.js"
+            integrity="sha256-xNzN2a4ltkB44Mc/Jz3pT4iU1cmeR0FkXs4pru/JxaQ=" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/moment@2.29.1/moment.js"
+            integrity="sha256-8AdWdyRXkrETyAGla9NmgkYVlqw4MOHR6sJJmtFGAYQ=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.min.js"
+            integrity="sha512-mf78KukU/a8rjr7aBRvCa2Vwg/q0tUjJhLtcK53PHEbFwCEqQ5durlzvVTgQgKpv+fyNMT6ZQT1Aq6tpNqf1mg=="
+            crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-streaming@1.8.0/dist/chartjs-plugin-streaming.min.js"
+            integrity="sha256-wqXny6qh3ioeH5yAUB6xPVTJ/EcNaHOR1HvuSZuEFXU=" crossorigin="anonymous"></script>
+    <style>
+        .chart-container {
+            margin: 0 auto;
+            position: relative;
+        }
+    </style>
+</head>
+
+<body>
+<h1>サーバ毎のCPU 負荷率</h1>
+<div class="chart-container">
+    <canvas id="canvas"></canvas>
+</div>
+
+<script>
+    // グラフデータ
+    let chartData = {
+        datasets: [{
+            label: 'Web サーバ 1 号機',
+            borderColor: 'rgb(255, 99, 132)',
+            fill: false,
+            data: []
+        },
+            {
+                label: 'Web サーバ 2 号機',
+                borderColor: 'rgb(54, 162, 235)',
+                fill: false,
+                cubicInterpolationMode: 'monotone',
+                data: []
+            },
+            {
+                label: 'DB サーバ',
+                borderColor: 'rgb(255, 205, 86)',
+                fill: false,
+                cubicInterpolationMode: 'monotone',
+                data: []
+            }]
+    };
+
+    // Chart.js の設定
+    let config = {
+        type: 'line', // 折れ線グラフ
+        data: chartData, // グラフデータ
+        options: {
+            responsive: true, // レスポンシブ対応
+            legend: {
+                position: 'bottom' // 凡例を下に表示
+            },
+
+            // ストリーミングデータ表示設定
+            scales: {
+                xAxes: [{
+                    type: 'realtime',
+                    realtime: {
+                        // duration: 20000, // グラフに表示する期間(20秒)
+                        // refresh: 1000, // 再描画間隔(1秒)
+                        // delay: 4000, // 遅延時間(4秒)
+                        onRefresh: function (chart) {
+                            chart.data.datasets.forEach(dataset => {
+                                dataset.data.push({
+                                    x: Date.now(),
+                                    y: Math.random() * 100
+                                });
+                            });
+                            chart.update();
+                        }
+                    }
+                }]
+            },
+
+            // ツールチップ表示のカスタマイズ
+            tooltips: {
+                mode: 'nearest', // nearest: マウスポインタに近いデータを表示
+                intersect: false,
+            },
+        }
+    };
+
+    $(function () {
+        // canvas の DOM を取得
+        let ctx = $('#canvas');
+
+        // グラフを描画
+        let chart = new Chart(ctx, config);
+    });
+</script>
+</body>
+
+</html>
