@@ -1,0 +1,20 @@
+/* カテゴリごとの色設定 */
+.japanese {
+    border-left: 10px solid #7b6b9b;  /* グレー */
+}
+
+.french {
+    border-left: 10px solid #2980b9; /* 淡い青 */
+}
+
+.chinese {
+    border-left: 10px solid #d35400; /* 淡い赤 */
+}
+
+/* ふせんのようなデザインにする */
+.sticky-note {
+    padding: 10px 15px;
+    color: #555555; /* グレー系の文字色 */
+    background-color: #ffffff; /* 白背景 */
+    box-shadow: 0 2px 2px #dddddd; /* 影をつける */
+}

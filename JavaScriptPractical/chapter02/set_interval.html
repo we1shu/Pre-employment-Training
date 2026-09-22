@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <title>setInterval でループ</title>
+</head>
+<body>
+<h1 id="heading">setInterval でループ</h1>
+<script>
+    let count = 0;
+    const sample = () => {
+        count++;
+        console.log(count);
+    };
+    let timer = setInterval(sample, 1000);
+
+    // 5秒后停止
+    setTimeout(() => {
+        clearInterval(timer);
+    }, 5000);
+</script>
+</body>
+</html>

@@ -1,0 +1,9 @@
+div {
+    width: 200px; /* コンテンツ領域の幅 */
+    height: 150px; /* コンテンツ領域の高さ */
+
+    background-color: #bdf8ff; /* コンテンツ領域の色 */
+    padding: 20px; /* パディング */
+    border: 30px solid #dbdbdb; /* ボーダー */
+    margin: 40px; /* マージン */
+}

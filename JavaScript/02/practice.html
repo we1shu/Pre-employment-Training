@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+<h1>変数の活用</h1>
+<script>
+    // 今日の売上は500ドル
+    let sales_today = 500;
+    // 今日のかかったお金は50ドル
+    let cost = 50;
+    // 今日の１ドルは110円
+    let rate = 110;
+    // 今日のチームは3人
+    let number_of_team = 3;
+
+    // 結果を入れておく変数
+    let result = 0;
+
+    // 1. 複合代入演算子でresultにsales_todayを足す
+    result = sales_today;
+
+    // 今日の売上を出力
+    console.log(`今日の売上は${result}ドルです。`);
+
+    // 2. 複合代入演算子でresultからcostを引く
+    result = result - cost;
+
+    // 出力
+    console.log(`今日の利益は${result}ドルです。`);
+
+    // 3. 複合代入演算子でresultにrateを掛ける
+    result = result * rate;
+
+    // 出力
+    console.log(`今日の利益は日本円で${result}円です。`);
+    result = result / number_of_team;
+
+    // 4. 複合代入演算子でresultをnumber_of_teamで割る
+
+    // 出力
+    console.log(`一人アタマの利益は${result}円です。`);
+</script>
+</body>
+</html>

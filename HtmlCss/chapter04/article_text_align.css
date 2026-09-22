@@ -1,0 +1,25 @@
+article {
+    width: 600px;
+    margin: 32px;
+    padding: 32px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+h2 {
+    padding-left: 1rem;
+    font-size: 1.3em;
+    border-left: 4px solid #007bff;
+    color: #333;
+}
+
+h3 {
+    font-size: 1em;
+    color: #007bff;
+
+    /* 中央揃えにする */
+    text-align: center;
+}
+
+p {
+    text-indent: 2em;
+}

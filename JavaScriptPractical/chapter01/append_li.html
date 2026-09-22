@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <title>ul 要素に li 要素を追加</title>
+</head>
+<body>
+<h1>ul 要素に li 要素を追加</h1>
+<ul id="messages"></ul>
+<script>
+    let ul_element = document.getElementById('messages');
+    for(let i = 1; i <= 5; i++){
+        let message = document.createElement('li');
+        message.innerHTML = `${i}個目の要素です。`;
+        ul_element.appendChild(message);
+    }
+</script>
+</body>
+</html>

@@ -1,0 +1,43 @@
+button{
+
+    color:#007aff;
+
+    border: 1px solid #007aff;
+
+    font-size:1em;
+
+    padding:10px 50px;
+
+    margin-bottom: 5px;
+
+    margin-top: 10px;
+
+
+
+}
+
+h2{
+
+    font-size:1.2em;
+
+}
+
+p{
+
+    font-size:0.875em;
+
+    color:#666666;
+
+}
+
+.card{
+
+    display:flex;
+
+    flex-direction:column;
+
+    width:300px;
+
+    margin: 0 auto;
+
+}

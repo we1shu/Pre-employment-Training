@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <title>トラバースメソッド</title>
+</head>
+<body>
+<h1 id="heading">トラバースメソッド</h1>
+<div id="restaurant_box">
+    <h2> おすすめのレストラン</h2>
+    <ul id="restaurant_list">
+        <li>
+            <a href="#">レストラン1</a>
+        </li>
+        <li>
+            <a href="#">レストラン2</a>
+        </li>
+        <li class="for_family">
+            <a href="#">レストラン3</a>
+        </li>
+        <li>
+            <a href="#">レストラン4</a>
+        </li>
+        <li class="for_family">
+            <a href="#">レストラン5</a>
+        </li>
+    </ul>
+    <p>他にも多数おすすめのレストランがあります。</p>
+</div>
+<script src="https://code.jquery.com/jquery-3.5.0.min.js" integrity="sha256-xNzN2a4ltkB44Mc/Jz3pT4iU1cmeR0FkXs4pru/JxaQ=" crossorigin="anonymous"></script>
+<script>
+    // 要素を取得
+    let $restaurant_list = $('#restaurant_list');
+
+    // 1. 親要素を取得
+    let $parent = $restaurant_list.parent();
+    console.log($parent);
+    // 2. 先祖要素のリストを取得
+    let $parents = $restaurant_list.parents();
+    console.log($parents);
+    // 3. 子要素（直下の要素）のリストを取得
+    let $children = $restaurant_list.children();
+    console.log($children);
+    // 4. 取得したリストのうちの指定番目を取得
+    let $second_child = $children.eq(1);
+    console.log($second_child.html());
+    // 5. 子孫要素のうち、CSSセレクタに当てはまるものを取得
+    let $for_families = $restaurant_list.find('.for_family');
+    console.log($for_families);
+    // 6. 子孫要素のうち、CSSセレクタに当てはまらないものを取得
+    let $not_for_families = $children.not('.for_family');
+    console.log($not_for_families);
+    // 7. 次の要素を取得
+    let $next_p = $restaurant_list.next();
+    console.log($next_p.html());
+    // 8. 前の要素を取得
+    let $prev_h2 = $restaurant_list.prev();
+    console.log($prev_h2.html());
+</script>
+</body>
+</html>

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <title>setInterval と DOM 操作</title>
+</head>
+<body>
+<h1>setInterval と DOM 操作</h1>
+<ul id="sample_list"></ul>
+<script>
+    // 親となる ul 要素を取得
+    let sample_list = document.getElementById('sample_list');
+    // いくつ目の要素かを数えるカウントを準備
+    let count = 1;
+    // 関数を準備
+    const sample = () => {
+        // li 要素を生成
+        let new_item = document.createElement('li');
+        // li 要素の中身を設定
+        new_item.innerHTML = `${count}つめの要素`;
+        // li 要素を ul id="sample_list" に追加
+        sample_list.appendChild(new_item);
+        // カウントを1つ進める
+        count++;
+    };
+
+    // sample関数を3秒ごとに繰り返し実行する
+    setInterval(sample, 3000);
+</script>
+</body>
+</html>

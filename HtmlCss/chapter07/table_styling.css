@@ -1,0 +1,23 @@
+/* テーブル全体のスタイル */
+table {
+    width: 50%;
+    margin: 20px auto;
+    border: 1px solid #333;
+
+    /* 列の幅の決め方（固定 or 自動） */
+    table-layout: auto;
+
+    /* 枠線の重ね方（separate or collapse） */
+    border-collapse: separate;
+}
+
+/* ヘッダセルの背景色 */
+th {
+    background-color: #eee;
+}
+
+/* セルのスタイル */
+th, td {
+    border: 1px solid #666;
+    padding: 10px;
+}

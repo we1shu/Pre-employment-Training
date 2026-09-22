@@ -1,0 +1,27 @@
+.card {
+    width: 360px;
+    padding: 16px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+img {
+    width: 100%;
+    height: auto;
+}
+
+p {
+    color: #0078d7; /* 青色 */
+    font-weight: bold;
+}
+
+h2 {
+    color: #333; /* 濃い灰色 */
+}
+
+.card-container {
+    display: flex; /* Flexboxを有効化 */
+    flex-direction: row; /* 横方向に配置 */
+    flex-wrap: wrap; /* 必要に応じて折り返し */
+    align-items: flex-start; /* 上揃え */
+    padding: 20px;
+}

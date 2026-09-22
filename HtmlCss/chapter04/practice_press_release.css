@@ -1,0 +1,46 @@
+body {
+    font-family: sans-serif;
+    color: #333;
+    line-height: 1.6;
+    margin: auto;
+}
+
+/* ヘッダー周り */
+header {
+    text-indent: 2em;
+    background-color: #0b1f42; /* 紺色系 */
+    color: #fff;
+    margin: auto;
+    padding: 1rem;
+}
+
+/* メインコンテンツ */
+main {
+    max-width: 800px;
+    margin: 0 auto;
+
+}
+
+h1 {
+    font-size: 1.4rem;
+    color: #0b1f42;
+}
+
+/* 記事タイトル */
+h2 {
+    font-size: 1.2rem;
+    color: #333;
+    line-height: 1.4;
+}
+
+time {
+    margin-right: 2em;
+    color: #777;
+    font-size: 0.9rem;
+}
+
+span {
+    text-indent: 2em;
+    font-size: 0.8rem;
+    background-color: #eaf2ff;
+}

@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <title>雑貨屋さんショッピングカート</title>
+    <style>
+        /* シンプルで洗練されたデザイン */
+        body {
+            font-family: 'Helvetica Neue', Arial, sans-serif;
+            background-color: #f5f5f5;
+            margin: 0;
+            padding: 40px;
+            color: #333;
+        }
+        .cart-container {
+            max-width: 800px;
+            margin: auto;
+            background: #fff;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+        }
+        .cart-title {
+            background-color: #5563DE;
+            color: #fff;
+            text-align: center;
+            padding: 20px;
+            font-size: 1.8em;
+        }
+        .cart-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 20px;
+            border-bottom: 1px solid #eee;
+        }
+        .cart-item:last-child {
+            border-bottom: none;
+        }
+        .item-details {
+            flex: 1;
+        }
+        .item-name {
+            font-size: 1.2em;
+            margin-bottom: 5px;
+        }
+        .item-price {
+            color: #888;
+        }
+        .item-quantity input {
+            width: 60px;
+            padding: 5px;
+            font-size: 1em;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            text-align: center;
+            transition: border-color 0.3s;
+        }
+        .coupon {
+            display: flex;
+            align-items: center;
+            padding: 15px 20px;
+            background-color: #f7f7f7;
+            border-top: 1px solid #eee;
+            border-bottom: 1px solid #eee;
+        }
+        .coupon input[type="checkbox"] {
+            width: 20px;
+            height: 20px;
+            margin-right: 10px;
+            accent-color: #5563DE;
+        }
+        .total-price {
+            text-align: right;
+            padding: 20px;
+            font-size: 1.6em;
+            font-weight: bold;
+            background-color: #fafafa;
+        }
+    </style>
+</head>
+<body>
+<div class="cart-container">
+    <div class="cart-title">雑貨屋さんショッピングカート</div>
+
+    <!-- 商品1: 手作りキャンドル (350円) -->
+    <div class="cart-item" data-price="350">
+        <div class="item-details">
+            <div class="item-name">手作りキャンドル</div>
+            <div class="item-price">350円</div>
+        </div>
+        <div class="item-quantity">
+            <input type="number" value="1" min="0" max="10" onchange="redrawPrice()">
+        </div>
+    </div>
+
+    <!-- 商品2: レトロなマグカップ (450円) -->
+    <div class="cart-item" data-price="450">
+        <div class="item-details">
+            <div class="item-name">レトロなマグカップ</div>
+            <div class="item-price">450円</div>
+        </div>
+        <div class="item-quantity">
+            <input type="number" value="1" min="0" max="10" onchange="redrawPrice()">
+        </div>
+    </div>
+
+    <!-- 商品3: ヴィンテージ風フォトフレーム (550円) -->
+    <div class="cart-item" data-price="550">
+        <div class="item-details">
+            <div class="item-name">ヴィンテージ風フォトフレーム</div>
+            <div class="item-price">550円</div>
+        </div>
+        <div class="item-quantity">
+            <input type="number" value="1" min="0" max="10" onchange="redrawPrice()">
+        </div>
+    </div>
+
+    <!-- クーポン適用部分 -->
+    <div class="coupon">
+        <input type="checkbox" id="couponCheckbox" onchange="redrawPrice()">
+        <label for="couponCheckbox">1000円引きクーポンを適用する</label>
+    </div>
+
+    <!-- 合計金額表示 ※エラー時はエラーメッセージを表示 -->
+    <div class="total-price">合計: <span id="totalAmount">0円</span></div>
+</div>
+
+<script>
+    // ==========================================
+    // ここから、
+    // ==========================================
+
+    /**
+     * validateQuantity は、商品の数量として入力された値が
+     * 適切なものであるかを検証する関数です。
+     *
+     * @param string value - テキストボックスに入力された値
+     * @returns {boolean} 空文字でない かつ 0～10の整数であるなら true
+     */
+    const validateQuantity = value => {
+        // 空文字でない かつ 0～10の整数であるなら true 、そうでないなら false を return する
+        if (value === "") return false;
+
+        if (value.length > 1 && value[0] === "0") return false;
+
+        for (let i = 0; i < value.length; i++) {
+            if (value[i] < '0' || value[i] > '9') {
+                return false;
+            }
+        }
+
+        const num = Number(value);
+
+        return num >= 0 && num <= 10;
+    };
+
+    /**
+     * calculatePrice は、カートの内容をオブジェクト（items 配列を持つオブジェクト）、
+     * クーポン適用状態を boolean で受け取り、合計金額を計算して返す関数です。
+     *
+     * @param {Object} cart - カート内容のオブジェクト。例: { items: [ { price, quantity }, ... ] }
+     * @param {boolean} couponApplied - クーポンが適用されている場合は true
+     * @returns {number} 合計金額
+     */
+    const calculatePrice = (cart, couponApplied) => {
+        // 合計金額を計算し、 return する
+        let total = 0;
+
+        for (let i = 0; i < cart.items.length; i++) {
+            const item = cart.items[i];
+            total += item.price * item.quantity;
+        }
+        if (couponApplied) {
+            total -= 1000;
+            if (total < 0) total = 0;
+        }
+        return total;
+    };
+
+    // ==========================================
+    // ここまでのコード(関数の中身)を編集しましょう。
+    // ==========================================
+
+
+    // バリデーションと価格計算を行い、合計金額またはエラーメッセージを更新
+    const redrawPrice = () => {
+        let valid = true;
+        const items = [];
+        const cartItems = document.querySelectorAll('.cart-item');
+
+        cartItems.forEach(item => {
+            const quantityInput = item.querySelector('.item-quantity input');
+            if (validateQuantity(quantityInput.value)) {
+                quantityInput.style.borderColor = "#ccc";
+            } else {
+                valid = false;
+                quantityInput.style.borderColor = "red";
+            }
+            const price = parseInt(item.getAttribute('data-price'), 10);
+            const quantity = parseInt(quantityInput.value, 10);
+            items.push({ price, quantity });
+        });
+
+        const totalElement = document.getElementById('totalAmount');
+        if (!valid) {
+            totalElement.textContent = "正しい数量を入力してください";
+            return;
+        }
+
+        const couponChecked = document.getElementById('couponCheckbox').checked;
+        const cart = { items };
+        const total = calculatePrice(cart, couponChecked);
+
+        totalElement.textContent = `${total}円`;
+
+    };
+
+    window.onload = () => redrawPrice();
+</script>
+</body>
+</html>

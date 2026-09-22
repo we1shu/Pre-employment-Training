@@ -1,0 +1,246 @@
+/* 共通 */
+* {
+    box-sizing: border-box;
+}
+
+body {
+    min-width: 1100px;
+    margin: 0;
+    background-color: white;
+    color: #111;
+    font-family: "游ゴシック", YuGothic, "ヒラギノ角ゴ Pro W3", "Hiragino Kaku Gothic Pro", "ＭＳ Ｐゴシック", "MS PGothic", sans-serif;
+}
+
+h1, h2, h3, h4, p, ul {
+    margin: 0;
+    padding: 0;
+}
+
+img {
+    display: block;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+a:focus-visible, input:focus-visible, button:focus-visible {
+    outline: 2px solid #d51010;
+    outline-offset: 4px;
+}
+
+.container {
+    width: 1100px;
+    margin: 0 auto;
+}
+
+/* ヘッダー */
+.header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px 0;
+}
+
+.logo {
+    line-height: 1;
+}
+
+nav ul {
+    display: flex;
+    gap: 20px;
+    list-style: none;
+}
+
+nav a {
+    color: #d51010;
+    font-size: 14px;
+}
+
+nav a:hover {
+    text-decoration: underline;
+}
+
+/* メイン：780px + 20px + 300px */
+.hero img {
+    width: 100%;
+    height: auto;
+}
+
+.content {
+    display: flex;
+    align-items: flex-start;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.left {
+    width: 780px;
+    flex-shrink: 0;
+}
+
+.right {
+    width: 300px;
+    margin-left: 20px;
+    flex-shrink: 0;
+}
+
+.left h2 {
+    margin-bottom: 10px;
+    border-bottom: 1px solid #f33;
+    font-size: 24px;
+    line-height: 1.8;
+}
+
+/* ジャンル：カード全体をリンクにする */
+.genre {
+    margin-bottom: 20px;
+}
+
+.genre-list {
+    display: flex;
+    gap: 10px;
+}
+
+.genre-list a {
+    display: block;
+    border: 1px solid #DDD;
+}
+
+.genre-list a:hover {
+    background-color: #fff5f5;
+}
+
+.genre-card h3 {
+    padding: 10px 0;
+    font-size: 16px;
+    font-weight: 500;
+    text-align: center;
+}
+
+/* ユーザーレビュー */
+.review-list {
+    display: flex;
+    gap: 20px;
+}
+
+.review-card {
+    width: 380px;
+    margin-bottom: 20px;
+    padding: 20px;
+    border: 1px solid #DDD;
+    background-color: #faf8f8;
+}
+
+.user {
+    display: flex;
+    align-items: center;
+}
+
+.user img {
+    flex-shrink: 0;
+}
+
+.user-info {
+    margin-left: 10px;
+}
+
+.user-info h3 {
+    font-size: 16px;
+    line-height: 1.5;
+}
+
+.review-card p {
+    font-size: 11px;
+    line-height: 1.9;
+}
+
+.user-info p {
+    font-size: 12px;
+    line-height: 1.5;
+}
+
+.review-card hr {
+    margin: 10px 0 0;
+    border: 0;
+    border-top: 2px solid #DDD;
+}
+
+.review-title {
+    margin: 20px 0;
+    font-size: 17px;
+    line-height: 1.3;
+}
+
+/* 検索 */
+.search {
+    padding: 20px;
+    box-shadow: 0px 0px 5px 0px #CCC;
+}
+
+.search h2 {
+    margin-bottom: 10px;
+    font-size: 16px;
+}
+
+.search form {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+}
+
+.search input {
+    width: 100%;
+    height: 40px;
+    padding: 10px;
+    border: 1px solid #888;
+    border-radius: 0;
+    font: inherit;
+    font-size: 12px;
+}
+
+.search input::placeholder {
+    color: #aaa;
+}
+
+.search button {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 10px;
+    border: 1px solid #a00;
+    background-color: #f00;
+    color: white;
+    font: inherit;
+    font-size: 18px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.search button:hover {
+    background-color: #c00;
+}
+
+/* フッターは画面いっぱいに背景色を付ける */
+footer {
+    padding: 20px 0;
+    background-color: #DCD5D5;
+    text-align: center;
+}
+
+/* 行の高さを文字サイズに揃え、余分な上下の空きを防ぐ */
+footer p {
+    margin: 0;
+    padding: 0;
+    font-size: 12px;
+    line-height: 1;
+}
+
+footer small {
+    display: block;
+    font-size: inherit;
+    line-height: inherit;
+    letter-spacing: 2px;
+}

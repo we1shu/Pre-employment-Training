@@ -1,0 +1,28 @@
+.container {
+    display: flex;
+
+    /* 固定幅にし、中央に揃える */
+    width: 960px;
+    margin: 0 auto;
+
+    /* わかりやすくするために、
+    色付けをしつつ高さを付ける */
+    background-color: #f5f5dd;
+    height: 640px;
+}
+
+.left {
+    width: 200px;
+    background-color: pink;
+}
+
+.main {
+    /* 余ったスペースをどの割合で配分するか */
+    /* 100% の割合 */
+    flex: 1;
+}
+
+.right {
+    width: 150px;
+    background-color: lightblue;
+}

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <title>カウントダウン</title>
+    <style>
+        .count_box {
+            font-size: 60px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+<h1 id="heading">カウントダウン</h1>
+<div id="count_box" class="count_box">10</div>
+<button id="count_down_button">カウントダウン</button>
+<script>
+    let count_time = 10;
+    let count_down_button = document.getElementById("count_down_button");
+    let count_box = document.getElementById("count_box");
+
+    // 先声明 timer
+    let timer;
+
+    const count_down = () => {
+        count_time--;
+
+        if (count_time > 0) {
+            count_box.textContent = count_time;
+        } else {
+            count_box.textContent = "Time Up!!";
+            clearInterval(timer);   // 停止循环
+        }
+    }
+
+    // 点击按钮开始倒计时
+    count_down_button.addEventListener("click", () => {
+
+        // 防止连续点击产生多个定时器
+        clearInterval(timer);
+
+        // 重置
+        count_time = 10;
+        count_box.textContent = count_time;
+
+        // 开始循环
+        timer = setInterval(count_down, 1000);
+
+    });
+
+</script>
+</body>
+</html>

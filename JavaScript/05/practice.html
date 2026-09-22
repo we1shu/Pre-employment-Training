@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h1>Practice</h1>
+<script>
+    let english_scores = [765, 820, 440, 530, 900, 960, 735];
+    let totalScore = 0;
+    let averageScore = 0;
+    for (let i = 0; i < english_scores.length; i++) {
+      totalScore += english_scores[i];
+    }
+    averageScore = totalScore / english_scores.length;
+    console.log('平均値：' + averageScore);
+    for (let i = 0; i < english_scores.length; i++) {
+        if (english_scores[i] < averageScore) {
+            console.log('平均値以下のスコア' + english_scores[i]);
+        }
+    }
+</script>
+
+</body>
+</html>

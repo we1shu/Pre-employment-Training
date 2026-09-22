@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <title>オブジェクトの使い方</title>
+</head>
+<body>
+<h1>オブジェクトの使い方</h1>
+<script>
+    const cat = {
+        name: 'たま',  //cat の name プロパティ（property）の値は 'たま'
+        age: 3, //cat の age プロパティの値は 3
+        speak: () => {
+            console.log('にゃー');
+        },
+        introduce: function () {
+            //メソッド内部でオブジェクトのプロパティを参照する場合は、アロー関数ではなく
+            //function キーワードを使って関数を定義し、 this を使います。
+            console.log(`名前は ${this.name} です。`);
+
+        },
+    };
+
+    console.log(cat.name);
+    console.log(cat.age);
+    cat.speak();
+</script>
+</body>
+</html>

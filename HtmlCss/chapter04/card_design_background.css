@@ -1,0 +1,24 @@
+div {
+    width: 360px; /* 幅を設定 */
+    padding: 16px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+
+    /* 背景色を設定 */
+    background-color: #555555; /* 灰色 */
+}
+
+img {
+    width: 100%; /* 親要素の幅に合わせる */
+    height: auto; /* アスペクト比を維持して高さを自動調整 */
+}
+
+/* カテゴリ部分（補足テキスト） */
+p {
+    color: #CCCCCC; /* 薄い灰色 */
+    font-weight: bold;
+}
+
+/* タイトル部分 */
+h2 {
+    color: #FFFFFF; /* 白 */
+}

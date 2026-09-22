@@ -1,0 +1,13 @@
+h1 {
+    font-size: 1.8em;
+    color: #444;
+    margin-bottom: 10px;
+    border-bottom: 2px solid #ccc;
+    padding-bottom: 5px;
+}
+
+p {
+    color: #666;
+    line-height: 1.8;
+    margin-bottom: 10px;
+}

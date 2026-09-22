@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <title>画像の切り替え</title>
+</head>
+<body>
+<h1>画像の切り替え</h1>
+<img id="sample_image" src="images/image01.jpg">
+<script>
+    window.addEventListener('load', () => {
+        const IMAGE_LIST = [
+            'image01.jpg',
+            'image02.jpg',
+            'image03.jpg',
+            'image04.jpg'
+        ];
+        // 現在いくつ目の要素かを数えるカウントを準備
+        let count = 0;
+        // 関数を準備
+        const chengeImage = () => {
+            // カウントを1つ進める
+            count++;
+            // 画像を設定する img 要素を取得
+            let img = document.getElementById('sample_image');
+            // リストの要素数で割った余りは、0,1,2,3,0,1,2,3... と周期的に変化する
+            let index = count % IMAGE_LIST.length;
+            // 画像のsrc属性を切り替え
+            img.src = `images/${IMAGE_LIST[index]}`;
+            // 次回の実行を設定
+            setTimeout(chengeImage, 3000);
+        };
+        // 初回の起動
+        setTimeout(chengeImage, 3000);
+    });
+</script>
+</body>
+</html>

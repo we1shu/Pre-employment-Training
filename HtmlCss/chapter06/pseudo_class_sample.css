@@ -1,0 +1,25 @@
+.words a {
+    color: red;
+    text-decoration: none;
+}
+
+.words p:first-child {
+    color: blue;
+}
+
+.words p:last-child {
+    color: green;
+}
+
+/* 新たに追記した部分 */
+.words p {
+    color: purple;
+}
+
+p {
+    color: tomato;
+}
+
+a {
+    color: black;
+}

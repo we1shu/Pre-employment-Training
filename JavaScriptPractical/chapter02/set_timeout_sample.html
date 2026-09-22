@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <title>setTimeout の使い方</title>
+</head>
+<body>
+<h1 id="heading">setTimeout の使い方</h1>
+<script>
+    let count = 0;
+    // 関数を準備
+    const sample = () => {
+        count += 5;
+        console.log(count);
+    };
+    setTimeout(sample, 5000);
+</script>
+</body>
+</html>

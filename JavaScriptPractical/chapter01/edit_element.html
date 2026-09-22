@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8" />
+    <title>DOM要素の取得</title>
+</head>
+<body>
+<h1 id="heading">編集前</h1>
+<script>
+    let heading_element = document.getElementById('heading');
+    console.log(heading_element.innerHTML);
+    alert('編集を開始します');
+    heading_element.innerHTML = '編集しました';
+    heading_element.style.color = 'red';
+    heading_element.style.backgroundColor = 'black';
+</script>
+</body>
+</html>

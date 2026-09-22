@@ -1,0 +1,14 @@
+a {
+    text-decoration: none;
+}
+span {
+    text-decoration: underline;
+}
+b {
+    text-decoration: overline;
+    font-weight: normal;
+}
+strong {
+    text-decoration: line-through;
+    font-weight: normal;
+}

@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <title>a 要素を生成して追加</title>
+</head>
+<body>
+<h1>a 要素を生成して追加</h1>
+<div id="box"></div>
+<script>
+    // a 要素を生成
+    let a_element = document.createElement('a');
+    // a 要素のテキストを設定
+    a_element.innerHTML = 'Google';
+    // a 要素のリンク先(href)を設定
+    a_element.href = 'https://google.com';
+
+    let box_element = document.getElementById('box');
+    // div 要素に a 要素を追加
+    box_element.appendChild(a_element);
+</script>
+</body>
+</html>

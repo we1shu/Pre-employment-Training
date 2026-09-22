@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <title>課題</title>
+</head>
+<body>
+<h1>課題</h1>
+<div id="box"></div>
+<script>
+    let box = document.getElementById("box");
+
+    let google = document.createElement("a");
+    google.innerHTML = "Google";
+    google.style.color = "blue";
+    google.href = 'https://google.com';
+
+    let yahoo = document.createElement("a");
+    yahoo.innerHTML = "Yahoo";
+    yahoo.style.color = "blue";
+    yahoo.href = 'https://yahoo.co.jp';
+
+    let bing = document.createElement("a");
+    bing.innerHTML = "Bing";
+    bing.style.color = "perrple";
+    bing.href = 'https://bing.com';
+
+    box.appendChild(google);
+    box.appendChild(document.createElement("br"));
+    box.appendChild(yahoo);
+    box.appendChild(document.createElement("br"));
+    box.appendChild(bing);
+
+
+    // 以下に記述を追加
+</script>
+</body>
+</html>

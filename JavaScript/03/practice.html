@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <title>FizzBuzz</title>
+</head>
+<body>
+<h1>FizzBuzz</h1>
+<script>
+    // Math.random() は、0以上1未満のランダムな値を返す。
+    // https://developer.mozilla.org/ja/docs/Web/JavaScript/Reference/Global_Objects/Math/random
+
+    // Math.floor() は、引数で指定された値を少数点以下で切り捨てる。
+
+    // 0 ~ 99 のランダムな値を取得
+    const random = Math.floor(Math.random() * 100);
+    console.log(random);
+
+    if (random % 3 === 0) {
+        if (random % 5 === 0) {
+            console.log('FizzBuzz!');
+        }
+        else {
+        console.log('Fizz!');
+        }
+    }else if (random % 5 === 0) {
+        if (random % 3 === 0) {
+            console.log('FizzBuzz!');
+        }
+        else{
+            console.log('Buzz!');
+        }
+    }else{
+        console.log(random);
+    }
+    // 以下に回答してください。
+
+</script>
+</body>
+</html>

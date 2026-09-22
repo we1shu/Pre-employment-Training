@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <title>ビンゴ</title>
+    <style>
+        .selected_cell {
+            background-color: lightgray;
+        }
+        #bingo {
+            text-align: center;
+        }
+        #bingo_display {
+            display: flex;
+            border: solid 1px black;
+            flex-wrap: wrap;
+            width: 600px;
+            margin: 20px auto;
+        }
+
+        .bingo_cell {
+            border: solid 1px black;
+            font-size: 30px;
+            box-sizing: border-box;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+    </style>
+</head>
+<body>
+<h1>ビンゴ</h1>
+<div id="bingo">
+    <div id="bingo_display"></div>
+    <div>
+        <button id="start_button">スタート</button>
+        <button id="stop_button">ストップ</button>
+        <button id="reset_button">リセット</button>
+    </div>
+</div>
+<script src="https://code.jquery.com/jquery-3.5.0.min.js" integrity="sha256-xNzN2a4ltkB44Mc/Jz3pT4iU1cmeR0FkXs4pru/JxaQ=" crossorigin="anonymous"></script>
+<script>
+    const DISPLAY_WIDTH = 600;
+    const SIZE = 7;
+
+    let timer_id;
+
+    const setCells = () => {
+        let cell_size = DISPLAY_WIDTH / SIZE;
+        for (let i = 1; i <= SIZE * SIZE; i++) {
+            // マス目を表す div を生成
+            let $bingo_cell = $('<div>').html(i).css({
+                width: cell_size,
+                height: cell_size,
+            }).addClass('bingo_cell');
+
+            // マス目を追加
+            $('#bingo_display').append($bingo_cell);
+        }
+    };
+
+    const getRandomCell = () => {
+        let $bingo_cells = $('.bingo_cell').not('.selected_cell');
+        // ランダムに 0 〜 マス目の個数-1 のいずれかの数値を取得
+        let random_index = Math.floor(Math.random() * $bingo_cells.length);
+        // ランダムなマス目を取得
+        let $random_cell = $bingo_cells.eq(random_index);
+        return $random_cell;
+    };
+
+    const startBingo = () => {
+        // 現在着色されているマス目を解除
+        $('.active_cell').removeClass('active_cell');
+        // ランダムにマス目を取得
+        let $random_cell = getRandomCell();
+        // マス目に色を付ける
+        $random_cell.addClass('active_cell');
+        // 200ミリ秒後に再度実施
+        timer_id = setTimeout(startBingo, 200);
+    };
+
+    const hasRest = () => {
+        console.log($('.bingo_cell').not('.selected_cell').length);
+        return $('.bingo_cell').not('.selected_cell').length > 0;
+    };
+
+    const stopBingo = () => {
+        // ランダム選択を停止
+        clearInterval(timer_id);
+        // 選択中のマス目に色付け
+        $('.active_cell').removeClass('active_cell').addClass('selected_cell');
+        if (hasRest() === true) {
+            // スタートボタンを活性化
+            $('#start_button').prop('disabled', false);
+        }
+        // ストップボタンを不活性化
+        $('#stop_button').prop('disabled', true);
+    };
+
+    // 初期準備
+    setCells();
+    $('#stop_button').prop('disabled', true);
+
+    $('#start_button').on('click', () => {
+        startBingo();
+        // ストップボタンを活性化
+        $('#stop_button').prop('disabled', false);
+        // スタートボタンを活性化
+        $('#start_button').prop('disabled', true);
+    });
+
+    $('#stop_button').on('click', stopBingo);
+
+    $('#reset_button').on('click', () => {
+        stopBingo();
+        $('.selected_cell').removeClass('selected_cell');
+        $('#start_button').prop('disabled', false);
+        $('#stop_button').prop('disabled', true);
+    });
+</script>
+</body>
+</html>

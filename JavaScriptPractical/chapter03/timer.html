@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <title>カウントダウンタイマー</title>
+    <style>
+        #timer {
+            padding: 10px;
+            background-color: gray;
+            width: 300px;
+            text-align: center;
+            border-radius: 10px;
+        }
+
+        #timer_display {
+            background-color: lightgray;
+            padding: 3px;
+            border-radius: 10px;
+            font-size: 24px;
+        }
+    </style>
+</head>
+<body>
+<h1 id="heading">カウントダウンタイマー</h1>
+<div id="timer">
+    <p id="timer_display">03:00</p>
+    <div>
+        <button id="start_button">スタート</button>
+        <button id="stop_button">ストップ</button>
+        <button id="reset_button">リセット</button>
+    </div>
+</div>
+<script src="https://code.jquery.com/jquery-3.5.0.min.js" integrity="sha256-xNzN2a4ltkB44Mc/Jz3pT4iU1cmeR0FkXs4pru/JxaQ=" crossorigin="anonymous"></script>
+<script>
+    //let count = 180;
+    let count = 5;
+    // タイマーID
+    let timer_id;
+
+    const display_timer = (count) => {
+        // 残り分数を計算
+        let minute = Math.floor(count / 60);
+        minute = ('0' + minute).slice(-2);
+        // 残り秒数を計算
+        let second = count % 60;
+        second = ('0' + second).slice(-2);
+        // 時間を表す文字列を作成
+        let time = `${minute}:${second}`;
+
+        // 現在の残り時間を画面に表示
+        $('#timer_display').html(time);
+    };
+
+    const count_down = () => {
+        // カウントを減らす
+        count--;
+        if (count > 0) {
+            display_timer(count);
+            // 次のカウントダウンを1秒後に行う
+            timer_id = setTimeout(count_down, 1000);
+            console.log(`現在のタイマーID: ${timer_id}`);
+        } else {
+            // タイムアップ表示
+            $('#timer_display').html('Time UP!!');
+        }
+    }
+
+    $('#start_button').on('click', () => {
+        // 1秒後にカウントダウンを開始
+        timer_id = setTimeout(count_down, 1000);
+        let start_button = document.getElementById("start_button");
+        start_button.disabled = true;
+
+        let stop_button = document.getElementById("stop_button");
+        stop_button.disabled = false;
+
+    });
+
+    const stop_timer = () => {
+        // カウントダウンをストップ
+        console.log(`タイマーID: ${timer_id} をキャンセルしました。`);
+        clearTimeout(timer_id);
+        let start_button = document.getElementById("start_button");
+        start_button.disabled = false;
+        let stop_button = document.getElementById("stop_button");
+        stop_button.disabled = true;
+    };
+    $('#stop_button').on('click', stop_timer);
+    $('#reset_button').on('click', () => {
+        stop_timer();
+        count = 180;
+        display_timer(count);
+
+    });
+
+</script>
+</body>
+</html>

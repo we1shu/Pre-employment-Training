@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GourmetCamp | グルメサイト</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="container">
+        <header class="header">
+            <h1 class="logo">
+                <a href="#"><img src="images/logo.png" alt="GourmetCamp" width="300" height="38"></a>
+            </h1>
+            <nav aria-label="メインナビゲーション">
+                <ul>
+                    <li><a href="#">あなたにおすすめ</a></li>
+                    <li><a href="#">ジャンルで選ぶ</a></li>
+                    <li><a href="#">雰囲気で選ぶ</a></li>
+                    <li><a href="#">マイページ</a></li>
+                </ul>
+            </nav>
+        </header>
+
+        <main>
+            <section class="hero" id="recommend" aria-label="おすすめのお店">
+                <img src="images/top.jpg" alt="食べたいお店が見つかる。掲載店舗数 No.1 ※2023年自社調べ" width="1100" height="300">
+            </section>
+
+            <div class="content">
+                <div class="left">
+                    <section class="genre" id="genre" aria-labelledby="genre-heading">
+                        <h2 id="genre-heading">今人気のジャンルをチェック！</h2>
+                        <div class="genre-list">
+                            <a href="#">
+                                <article class="genre-card">
+                                    <img src="images/genre_chinese.jpg" alt="焼き餃子" width="140" height="100">
+                                    <h3>中 華</h3>
+                                </article>
+                            </a>
+                            <a href="#">
+                                <article class="genre-card">
+                                    <img src="images/genre_japanese.jpg" alt="握り寿司" width="140" height="100">
+                                    <h3>和 食</h3>
+                                </article>
+                            </a>
+                            <a href="#">
+                                <article class="genre-card">
+                                    <img src="images/genre_french.jpg" alt="彩り豊かなフランス料理" width="140" height="100">
+                                    <h3>フレンチ</h3>
+                                </article>
+                            </a>
+                            <a href="#">
+                                <article class="genre-card">
+                                    <img src="images/genre_italian.jpg" alt="トマトソースのパスタ" width="140" height="100">
+                                    <h3>イタリアン</h3>
+                                </article>
+                            </a>
+                            <a href="#">
+                                <article class="genre-card">
+                                    <img src="images/genre_sweets.jpg" alt="フルーツたっぷりのパンケーキ" width="140" height="100">
+                                    <h3>スイーツ</h3>
+                                </article>
+                            </a>
+                        </div>
+                    </section>
+
+                    <section class="review" id="reviews" aria-labelledby="review-heading">
+                        <h2 id="review-heading">ユーザーレビュー</h2>
+                        <div class="review-list">
+                            <article class="review-card" id="my-review">
+                                <div class="user">
+                                    <img src="images/icon_man.png" alt="" width="55" height="55">
+                                    <div class="user-info">
+                                        <h3>モーニングを愛する人</h3>
+                                        <p>千葉県</p>
+                                    </div>
+                                </div>
+                                <hr>
+                                <h4 class="review-title">また行きます - ほげほげダイニング品川</h4>
+                                <p>レビューの評価はいまいちですが、やっぱり自分で行って確かめるべき！店長と少しおしゃべりしました。コーヒーは店長自身が仕入れに海外まで行っているようです。そういうこだわり、好きです。</p>
+                            </article>
+                            <article class="review-card">
+                                <div class="user">
+                                    <img src="images/icon_woman.png" alt="" width="55" height="55">
+                                    <div class="user-info">
+                                        <h3>スイーツ大好き</h3>
+                                        <p>兵庫県</p>
+                                    </div>
+                                </div>
+                                <hr>
+                                <h4 class="review-title">内装の美しさに感動！ - モダンキッチン大崎ふがふが</h4>
+                                <p>以前から友人と話題に上っていたお店だったので楽しみにしていました。落ち着きのあるモダンな内装。オーダー前にすでに満足！</p>
+                            </article>
+                        </div>
+                    </section>
+                </div>
+
+                <aside class="right" aria-label="サイト内検索">
+                    <section class="search" id="search" aria-labelledby="search-heading">
+                        <h2 id="search-heading">検索</h2>
+                        <form action="#" method="get" role="search">
+                            <input type="search" name="q" aria-label="検索キーワード" placeholder="キーワード(例: 品川、ワイン)">
+                            <button type="submit"><img src="images/icon_search.png" alt="" width="20" height="20">検索</button>
+                        </form>
+                    </section>
+                </aside>
+            </div>
+        </main>
+    </div>
+
+    <footer>
+        <p><small>GourmetCamp&copy; All Rights Reserved</small></p>
+    </footer>
+</body>
+
+</html>

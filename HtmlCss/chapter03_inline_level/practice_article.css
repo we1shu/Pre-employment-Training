@@ -1,0 +1,34 @@
+header {
+    background-color: white;
+    padding: 20px;
+    text-align: center;
+    letter-spacing: 0.1em;
+}
+
+h2{
+    color: #007bff;
+}
+
+p{
+    color: #555555;
+}
+
+main {
+    max-width: 1200px;
+    margin: 20px auto;
+    padding: 0 20px;
+}
+
+strong{
+    text-decoration: underline;
+    font-weight: 100;
+}
+
+article {
+    margin-bottom: 40px;
+}
+
+/*
+以下に h1, h2, p, strong 要素に
+スタイルを適用するコードを書きましょう！
+*/

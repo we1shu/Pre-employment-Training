@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <title>式と演算子</title>
+</head>
+<body>
+<h1>式と演算子</h1>
+<script>
+    // 足し算と引き算
+    let a = 100 + 200 - 50;
+    console.log(a);
+    // 掛け算と割り算
+    let b = 100 * 2 / 10;
+    console.log(b);
+    // カッコの利用
+    let c = 100 + 200 * 3;
+    console.log(c);
+    let d = (100 + 200) * 3;
+    console.log(d);
+    // あまりの計算
+    let e = 7 % 4; // ７を4で割るとあまりは3
+    console.log(e);
+
+    // 文字列の連結
+    let greeting = 'こんにちは' + '山田さん';
+    console.log(greeting);
+    // 数値と文字列の連結
+    let age = 20;
+    let introduce = '私は' + age + '歳です';
+    console.log(introduce);
+    // 連結の順番
+    let message = '合計金額は' + 100 + 200 + 300 + '円です。';
+    console.log(message);
+    let message2 = '合計金額は' + (100 + 200 + 300) + '円です。';
+    console.log(message2);
+
+    // 複合代入演算子
+    let total = 0;
+    console.log(total);
+    // total = total + 300 を表す。
+    total += 300;
+    console.log(total);
+    // total = total - 100 を表す。
+    total -= 100;
+    console.log(total);
+    // total = total * 3 を表す。
+    total *= 3;
+    console.log(total);
+    // total = total / 20 を表す。
+    total /= 20;
+    console.log(total);
+
+</script>
+</body>
+</html>

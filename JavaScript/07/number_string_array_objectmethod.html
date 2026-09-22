@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>メソッド</title>
+</head>
+<body>
+<h1>メソッド</h1>
+<script>
+    let number = 123.456;
+    //toFixed メソッドは数値を指定した精度で四捨五入した値に変換するメソッドです
+    console.log(number.toFixed(1));
+
+    let text = 'apple,banana,grape';
+    //特定の文字で区切り、文字列から配列を作成
+    console.log(text.split(','));
+    //特定の文字列を指定し、最初に出てきたものを置換するのが replace メソッド
+    console.log(text.replace(',', 'と'));
+    //特定の文字列を指定し、全て置換するのが replaceAll メソッドの役割です。
+    console.log(text.replaceAll(',', 'と'));
+
+    let scores = [100, 200, 300];
+    //特定の文字列を区切り文字にして、配列を 1 つの文字列にまとめるのが join メソッドです。
+    console.log(scores.join('と'));
+
+    let scores = [100, 200, 300];
+    //配列の末尾に要素を追加する
+    scores.push(400);
+    console.log(scores);
+
+
+</script>
+
+</body>
+</html>

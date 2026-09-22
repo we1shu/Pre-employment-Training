@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <title>イベントリスナー</title>
+</head>
+<body>
+<h1 id="heading">イベントリスナー</h1>
+<script>
+    // イベントリスナーに設定するための関数を準備
+    const sample = () => {
+        alert('sample');
+    };
+    // DOM要素を取得
+    let heading = document.getElementById('heading');
+    // イベントリスナーを設定
+    // クリック(click)時に、sampleを動作させるように設定している
+    heading.addEventListener('click', sample);
+</script>
+</body>
+</html>

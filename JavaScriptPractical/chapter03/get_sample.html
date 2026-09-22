@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <title>DOM を取り出す</title>
+</head>
+<body>
+<h1 id="heading">DOM を取り出す</h1>
+<div id="restaurant_box">
+    <h2> おすすめのレストラン</h2>
+    <ul id="restaurant_list">
+        <li>
+            <a href="#">レストラン1</a>
+        </li>
+        <li>
+            <a href="#">レストラン2</a>
+        </li>
+        <li class="for_family">
+            <a href="#">レストラン3</a>
+        </li>
+        <li>
+            <a href="#">レストラン4</a>
+        </li>
+        <li class="for_family">
+            <a href="#">レストラン5</a>
+        </li>
+    </ul>
+    <p>他にも多数おすすめのレストランがあります。</p>
+</div>
+<script src="https://code.jquery.com/jquery-3.5.0.min.js" integrity="sha256-xNzN2a4ltkB44Mc/Jz3pT4iU1cmeR0FkXs4pru/JxaQ=" crossorigin="anonymous"></script>
+<script>
+    // 要素のリスト(5つの li ）を取得
+    let $restaurants = $('#restaurant_list li');
+    // 1つ目の li 要素を jQuery オブジェクトとして取得
+    let $restaurant = $restaurants.eq(0);
+    console.log($restaurant.html());
+    // 2つ目のli要素をDOM要素として取得
+    let restaurant_dom = $restaurants.get(1);
+    console.log(restaurant_dom.innerHTML);
+</script>
+</body>
+</html>

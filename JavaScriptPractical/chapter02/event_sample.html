@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <title>イベントリスナー</title>
+    <style>
+        .blue_box {
+            width: 500px;
+            height: 2000px;
+            background-color: blue;
+            opacity: 0.7;
+        }
+    </style>
+</head>
+<body>
+<h1 id="heading">イベントリスナー</h1>
+<div id="blue_box" class="blue_box"></div>
+<script>
+    // DOM要素を取得
+    let heading = document.getElementById('heading');
+    let blue_box = document.getElementById('blue_box');
+
+    // クリック
+    heading.addEventListener('click', () => {
+        console.log('クリックしました');
+    });
+    // マウスボタンを押す
+    blue_box.addEventListener('mousedown', () => {
+        console.log('マウスボタンを押しました');
+    });
+    blue_box.addEventListener('mouseup', () => {
+        console.log('マウスボタンを離しました');
+    });
+    // マウスオーバー
+    heading.addEventListener('mouseover', () => {
+        console.log('マウスオーバーしました')
+    });
+    // マウス移動
+    blue_box.addEventListener('mousemove', () => {
+        console.log('マウスが移動しました')
+    });
+    // マウスアウト
+    blue_box.addEventListener('mouseout', () => {
+        console.log('マウスが領域から外れました')
+    });
+    // ページの読み込み
+    window.addEventListener('load', () => {
+        console.log('ページの読み込みが完了しました。')
+    });
+    // スクロール
+    document.addEventListener('scroll', () => {
+        console.log('スクロールしました')
+    });
+    // リサイズ
+    window.addEventListener('resize', () => {
+        console.log('ウィンドウをリサイズしました。')
+    });
+</script>
+</body>
+</html>
